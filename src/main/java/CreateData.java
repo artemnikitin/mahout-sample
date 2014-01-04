@@ -26,11 +26,9 @@ public class CreateData {
         }
 
         for(int i = 0; i < numberOfItems; i++){
-            StringBuilder sb = new StringBuilder();
             int length = rand.nextInt(1000);
             if(length == 0) length = 1;
-            sb.append(length);
-            items.add(sb.toString());
+            items.add(String.valueOf(length));
         }
 
         result.add("#userId, itemId, score");
