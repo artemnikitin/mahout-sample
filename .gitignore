@@ -1,4 +1,10 @@
+test-data.csv
 *.class
+*.iml
+*.idea
+/.idea
+.idea/
+.DS_Store
 
 # Package Files #
 *.jar
