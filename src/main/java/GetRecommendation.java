@@ -13,8 +13,9 @@ import org.apache.mahout.cf.taste.similarity.*;
 public class GetRecommendation {
 
     public static void main(String[] args) throws Exception {
-        CreateData.asCSV(10000, 200, 10);
-        List<String> users = CreateData.listOfUsers;
+        CreateData crData = new CreateData();
+        crData.asCSV(10000, 200, 10);
+        List<String> users = crData.getListOfUsers();
         File data = new File("test-data.csv");
         DataModel model = new FileDataModel(data);
 
@@ -27,8 +28,10 @@ public class GetRecommendation {
         List<RecommendedItem> recommendations = cachingRecommender.recommend(
                 Long.parseLong(users.get(rand.nextInt(users.size()))), 5);
 
-        if(recommendations.size() == 0) System.out.println("There is no recommendation for selected user.");
-        else{
+        if (recommendations.size() == 0) {
+            System.out.println("There is no recommendation for selected user.");
+        }
+        else {
             for (RecommendedItem recommendation : recommendations) {
                 System.out.println(recommendation);
             }

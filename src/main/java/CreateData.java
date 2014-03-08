@@ -6,11 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CreateData {
+public class CreateData extends RandomGeneration {
 
-    public static List<String> listOfUsers;
+    private List<String> listOfUsers;
 
-    public static void asCSV(int numberOfUsers, int numberOfItems, int itemsPerUser){
+    public CreateData(){}
+
+    public List<String> getListOfUsers() {
+        return listOfUsers;
+    }
+
+    public void asCSV(int numberOfUsers, int numberOfItems, int itemsPerUser){
         long start = System.currentTimeMillis();
         List<String> result = new ArrayList<String>();
         List<String> users = new ArrayList<String>();
@@ -21,7 +27,7 @@ public class CreateData {
         for(int i = 0; i < numberOfUsers; i++){
             StringBuilder sb = new StringBuilder();
             sb.append(prefix);
-            sb.append(RandomGeneration.randomNumberNotNULL(10));
+            sb.append(randomNumber(10));
             users.add(sb.toString());
         }
 
